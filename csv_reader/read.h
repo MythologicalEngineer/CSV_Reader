@@ -6,7 +6,6 @@
 typedef struct {
     char **headers;
     char ***values;
-    int count;
 } CsvData;
 
 char* readLine(FILE *fp) {
@@ -126,7 +125,6 @@ int processLine(CsvData *csvData, char** myLines, int isHeader, int iter)
 
     if(isHeader == 1) {
         csvData->headers = items;
-        csvData->count = header_count;
     }
     else {
         csvData->values[iter-1] = items;
